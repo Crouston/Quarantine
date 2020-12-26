@@ -1,16 +1,11 @@
-extends CanvasLayer
+extends Node
 
-
+var player = preload("res://Prefabs/Player.tscn").instance()
+var healthbar 
+var money = 100
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
-func _input(event):
-	if event.is_action_pressed("Inventory"):
-		$Inventory.visible = !$Inventory.visible
-		$Inventory.initialize_inventory()
-	if event.is_action_pressed("Shop"):
-		$ShopPanel.visible = !$ShopPanel.visible
 
 
 # Called when the node enters the scene tree for the first time.

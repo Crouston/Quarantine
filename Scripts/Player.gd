@@ -1,10 +1,14 @@
 extends KinematicBody2D
 class_name Player
 
+signal change_health(amount)
+signal change_max_health(amount)
 var velocity = Vector2.ZERO
 const accelerator = 1000
 export var speed = 0
 
+var health = 50
+var max_health = 100
 enum{
 	MOVE,
 	ROLL,
@@ -55,3 +59,27 @@ func attack_state(delta):
 
 func attack_animation_finished():
 	state = MOVE
+
+func _input(event):
+	if event.is_action_pressed("pickup"):
+		if $PickupZone.items_in_range.size() > 0:
+			var pickup_item = $PickupZone.items_in_range.values()[0]
+			pickup_item.pick_up_item(self)
+			$PickupZone.items_in_range.erase(pickup_item)
+
+func set_health(amount):
+	health += amount
+	health = clamp(health,0,max_health)
+	GameManager.healthbar.value = health
+	#emit_signal("change_health",health)
+
+func dec_health(amount):
+	health -= amount
+	health = clamp(health,0,max_health)
+	if GameManager.healthbar != null:
+		GameManager.healthbar.value = health
+	#emit_signal("change_health",health)
+
+func _initialize():
+	emit_signal("change_health",health)
+	emit_signal("change_max_health",max_health)

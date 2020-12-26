@@ -1,16 +1,9 @@
-extends CanvasLayer
+extends Area2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
-func _input(event):
-	if event.is_action_pressed("Inventory"):
-		$Inventory.visible = !$Inventory.visible
-		$Inventory.initialize_inventory()
-	if event.is_action_pressed("Shop"):
-		$ShopPanel.visible = !$ShopPanel.visible
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,3 +14,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+var items_in_range = {}
+
+func _on_PickupZone_body_entered(body):
+	items_in_range[body] = body
+
+
+func _on_PickupZone_body_exited(body):
+	if items_in_range.has(body):
+		items_in_range.erase(body)

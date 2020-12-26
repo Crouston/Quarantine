@@ -26,6 +26,7 @@ func _ready():
 func set_item(nm, qt):
 	item_name = nm
 	item_quantity = qt
+	item_type = JsonData.item_data[item_name]["ItemCategory"]
 	$TextureRect.texture = load("res://Sprites/Inventory/" + item_name + ".png")
 	
 	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
@@ -42,3 +43,9 @@ func add_item_quantity(amount_to_add):
 func decrease_item_quantity(amount_to_remove):
 	item_quantity -= amount_to_remove
 	$Label.text = String(item_quantity)
+	if(item_quantity <= 0):
+		queue_free()
+
+func use_item(nm):
+	var add_health = JsonData.item_data[nm]["AddHealth"]
+	GameManager.player.set_health(add_health)

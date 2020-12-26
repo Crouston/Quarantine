@@ -11,12 +11,6 @@
     "StackSize": 99,
     "Description": "It smells like medicine."
   },
-  "Medic Kit": {
-    "ItemCategory": "Consumable",
-    "AddHealth": 50,
-    "StackSize": 99,
-    "Description": "It will patch you up"
-  },
   "Iron Sword": {
     "ItemCategory": "Sword",
     "ItemAttack": 3,
