@@ -608,6 +608,7 @@ margin_top = 104.0
 margin_right = 8.0
 margin_bottom = 104.0
 interaction_component_nodepath = NodePath("../../YSort/Npc")
+npcName = "Old_Man"
 dialogue_file_path = "res://src/Data/test_conversation.json"
 
 [node name="UserInterface" type="CanvasLayer" parent="."]

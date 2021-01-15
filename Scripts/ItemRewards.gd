@@ -1,9 +1,8 @@
 extends Node
+class_name ItemRewards
 
-var player = preload("res://Prefabs/Player.tscn").instance()
-var healthbar 
-var money = 100
-var dialogBox 
+export var itemName = ""
+export var itemQuantity = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
