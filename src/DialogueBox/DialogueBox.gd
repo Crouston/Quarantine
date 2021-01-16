@@ -4,7 +4,6 @@ signal dialogue_ended
 
 export var interaction_component_nodepath : NodePath
 #json data buat dialog
-export var npcName = "test_conversation"
 export (String, FILE, "*.json") var dialogue_file_path: String
 
 #ngambil node dialogue player
@@ -19,15 +18,10 @@ onready var button_finished:= get_node("Panel/Columns/ButtonFinished") as Button
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node(interaction_component_nodepath).connect("show_dialogue", self, "initiate_dialogue")
-	dialogue_file_path = "res://src/Data/" + npcName +".json"
-	GameManager.dialogBox = get_class()
 	hide()
 
-func _process(delta):
-	dialogue_file_path = "res://src/Data/" + npcName +".json"
-
 func initiate_dialogue() -> void:
-	#ini buat manggil func load_dialogue
+	#ini buat manggil func load_dialogue\
 	var dialogue: Dictionary = load_dialogue(dialogue_file_path)
 	
 	button_finished.hide()

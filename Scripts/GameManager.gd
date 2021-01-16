@@ -3,7 +3,7 @@ extends Node
 var player = preload("res://Prefabs/Player.tscn").instance()
 var healthbar 
 var money = 100
-var dialogBox 
+var interactNpc:npc 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

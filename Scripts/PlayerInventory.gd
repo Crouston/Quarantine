@@ -2,13 +2,11 @@ extends Node
 
 const SlotClass = preload("res://Prefabs/Slot.gd")
 const ItemClass = preload("res://Prefabs/Item.gd")
-const NUM_INVENTORY_SLOTS = 28
+const NUM_INVENTORY_SLOTS = 16
 
 var inventory = {
 	0: ["Iron Sword", 1],  #--> slot_index: [item_name, item_quantity]
-	1: ["Iron Sword", 1],  #--> slot_index: [item_name, item_quantity]
-	2: ["Slime Potion", 98],
-	3: ["Medic Kit", 98],
+	1: ["Tree Branch", 5]
 }
 
 func add_item(item_name, item_quantity):

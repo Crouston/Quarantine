@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/ItemDrop.tscn" type="PackedScene" id=2]
@@ -19,6 +19,9 @@
 [ext_resource path="res://Scripts/QuantityBuy.gd" type="Script" id=17]
 [ext_resource path="res://Scripts/ShopPanel.gd" type="Script" id=18]
 [ext_resource path="res://Scripts/ConfirmBuy.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/Quest/Quest.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/Quest/QuestUI.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Prefabs/ItemQuest.tscn" type="PackedScene" id=22]
 
 [sub_resource type="TileSet" id=1]
 0/name = "1. Grass (32 x 32).png 0"
@@ -599,6 +602,50 @@ current = true
 zoom = Vector2( 1.5, 1.5 )
 smoothing_enabled = true
 
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 88, 72 )
+collision_layer = 3
+speed = 100
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Tree" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 176, 152 )
+
+[node name="Enemy" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 184, 88 )
+
+[node name="Slime Potion" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 128, 72 )
+
+[node name="Chest" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 216, 48 )
+scale = Vector2( 0.3268, 0.384721 )
+
+[node name="Npc" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 240, 104 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Npc2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 48, 40 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Npc3" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( -16, 120 )
+scale = Vector2( 0.2, 0.2 )
+npcType = 1
+
+[node name="Quest" parent="YSort/Npc3" instance=ExtResource( 20 )]
+
+[node name="ItemQuest2" parent="YSort/Npc3/Quest" instance=ExtResource( 22 )]
+position = Vector2( 680, -120 )
+
+[node name="ItemQuest" parent="YSort/Npc3/Quest" instance=ExtResource( 22 )]
+position = Vector2( -3.05176e-05, -480 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogueBox" parent="CanvasLayer" instance=ExtResource( 9 )]
@@ -608,19 +655,43 @@ margin_top = 104.0
 margin_right = 8.0
 margin_bottom = 104.0
 interaction_component_nodepath = NodePath("../../YSort/Npc")
-npcName = "Old_Man"
 dialogue_file_path = "res://src/Data/test_conversation.json"
+
+[node name="DialogueBox2" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
+margin_left = 8.0
+margin_top = 104.0
+margin_right = 8.0
+margin_bottom = 104.0
+interaction_component_nodepath = NodePath("../../YSort/Npc2")
+dialogue_file_path = "res://src/Data/Old_Man.json"
+
+[node name="DialogueBox3" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
+margin_left = 8.0
+margin_top = 104.0
+margin_right = 8.0
+margin_bottom = 104.0
+interaction_component_nodepath = NodePath("../../YSort/Npc3")
+dialogue_file_path = "res://src/Data/Bambang.json"
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource( 12 )
+
+[node name="QuestUI" parent="UserInterface" instance=ExtResource( 21 )]
+visible = false
+margin_left = 64.0
+margin_top = 32.0
+margin_right = 232.0
+margin_bottom = 128.0
 
 [node name="Inventory" parent="UserInterface" instance=ExtResource( 8 )]
 visible = false
 
 [node name="HealthBar" parent="UserInterface" instance=ExtResource( 3 )]
-margin_left = 16.0
+margin_left = 8.0
 margin_top = 8.0
-margin_right = -304.0
+margin_right = -312.0
 margin_bottom = -172.0
 
 [node name="ShopPanel" type="Panel" parent="UserInterface"]
@@ -715,33 +786,10 @@ script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="YSort" type="YSort" parent="."]
-
-[node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 88, 72 )
-collision_layer = 3
-speed = 100
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
-remote_path = NodePath("../../../Camera2D")
-
-[node name="Tree" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 176, 152 )
-
-[node name="Enemy" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 184, 88 )
-
-[node name="Slime Potion" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 128, 72 )
-
-[node name="Chest" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 216, 48 )
-scale = Vector2( 0.3268, 0.384721 )
-
-[node name="Npc" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 240, 104 )
-scale = Vector2( 0.2, 0.2 )
+[connection signal="change_health" from="YSort/Player" to="UserInterface/HealthBar" method="_on_Player_change_health"]
+[connection signal="change_max_health" from="YSort/Player" to="UserInterface/HealthBar" method="_on_Player_change_max_health"]
+[connection signal="itemFound" from="YSort/Npc3/Quest/ItemQuest2" to="YSort/Npc3/Quest" method="getItem"]
+[connection signal="itemFound" from="YSort/Npc3/Quest/ItemQuest" to="YSort/Npc3/Quest" method="getItem"]
 [connection signal="pressed" from="UserInterface/ShopPanel/CloseButton" to="UserInterface/ShopPanel/CloseButton" method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="UserInterface/ShopPanel/ShopItem" to="UserInterface/ShopPanel/ShopItem" method="_on_ShopItem_pressed"]
 [connection signal="pressed" from="UserInterface/ShopPanel/ShopItem2" to="UserInterface/ShopPanel/ShopItem2" method="_on_ShopItem_pressed"]
@@ -749,5 +797,5 @@ scale = Vector2( 0.2, 0.2 )
 [connection signal="pressed" from="UserInterface/ShopPanel/QuantityPanel/QuantityBuy/Button2" to="UserInterface/ShopPanel/QuantityPanel/QuantityBuy" method="_on_Button2_pressed"]
 [connection signal="pressed" from="UserInterface/ShopPanel/QuantityPanel/QuantityBuy/Button" to="UserInterface/ShopPanel/QuantityPanel/QuantityBuy" method="_on_Button_pressed"]
 [connection signal="pressed" from="UserInterface/ShopPanel/QuantityPanel/ConfirmBuy" to="UserInterface/ShopPanel/QuantityPanel/ConfirmBuy" method="_on_ConfirmBuy_pressed"]
-[connection signal="change_health" from="YSort/Player" to="UserInterface/HealthBar" method="_on_Player_change_health"]
-[connection signal="change_max_health" from="YSort/Player" to="UserInterface/HealthBar" method="_on_Player_change_max_health"]
+
+[editable path="YSort/Npc3/Quest"]

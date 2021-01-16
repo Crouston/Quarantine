@@ -38,7 +38,6 @@ tracks/1/keys = {
 collision_layer = 16
 collision_mask = 16
 script = ExtResource( 2 )
-item_name = "Slime Potion"
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

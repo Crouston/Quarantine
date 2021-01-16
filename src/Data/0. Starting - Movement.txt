@@ -1,0 +1,7 @@
+{
+	"001" : {"name":"Rega", "text":"Okay, don't panic. Just breath and relax, everything will be okay."},
+	"002" : {"name":"Rega", "text":"Greetings!!! I'm Rega. Surely you have know the news about the pandemic that just happened few days ago."},
+	"003" : {"name":"Rega", "text":"Let's go around my house! We will check everything before we run out from this house."},
+	"004" : {"name":"Rega", "text":"Hahaha, just joking, don't be too serious."},
+	"005" : {"name":"Rega", "text":"Use 'W'  'A'  'S'  'D' for  character movement."}
+}

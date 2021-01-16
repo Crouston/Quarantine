@@ -1,13 +1,20 @@
 extends InteractableItem
 class_name npc
 
-export var npcName: String
 signal show_dialogue
+enum Type{normal,quest,shop}
+export var npcType = Type.normal
 
 func interaction_get_text() -> String:
 	return "Talk"
 
 func interaction_interact(interactionComponentParent : Node) -> void:
 	print ("Talking to NPC !!!")
-	GameManager.dialogBox
+	if npcType == Type.quest:
+		var q = $Quest
+		if q.quest_status == Quest.questStatus.notStarted:
+			q.OnTaken()
+		elif q.quest_status == Quest.questStatus.taken:
+			if q.quantityQuest <= 0:
+				q.OnCompleted()
 	emit_signal("show_dialogue")

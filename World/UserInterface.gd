@@ -11,6 +11,8 @@ func _input(event):
 		$Inventory.initialize_inventory()
 	if event.is_action_pressed("Shop"):
 		$ShopPanel.visible = !$ShopPanel.visible
+	if event.is_action_pressed("Quest"):
+		$QuestUI.visible = !$QuestUI.visible
 
 
 # Called when the node enters the scene tree for the first time.
