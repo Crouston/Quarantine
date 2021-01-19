@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/single2.wav-94fbfdc45daac40fb8831b89a4543b1f.sample"
+
+[deps]
+
+source_file="res://Sprites/Sound/single2.wav"
+dest_files=[ "res://.import/single2.wav-94fbfdc45daac40fb8831b89a4543b1f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/QuantityBuy.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/ShopPanel.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/CloseButton.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/ConfirmBuy.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/ShopItem.gd" type="Script" id=5]
+
+[node name="ShopPanel" type="Panel"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 256.0
+margin_bottom = 152.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="Button" parent="."]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 12.0
+margin_bottom = 12.0
+text = "X"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopItem" type="Button" parent="."]
+margin_left = 32.0
+margin_top = 24.0
+margin_right = 80.0
+margin_bottom = 44.0
+text = "Slime"
+script = ExtResource( 5 )
+ItemName = "Slime Potion"
+
+[node name="ShopItem2" type="Button" parent="."]
+margin_left = 104.0
+margin_top = 24.0
+margin_right = 161.0
+margin_bottom = 44.0
+text = "MedKit"
+script = ExtResource( 5 )
+ItemName = "Medic Kit"
+
+[node name="QuantityPanel" type="Panel" parent="."]
+visible = false
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 192.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton2" type="Button" parent="QuantityPanel"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 12.0
+margin_bottom = 12.0
+text = "X"
+script = ExtResource( 3 )
+
+[node name="QuantityBuy" type="Label" parent="QuantityPanel"]
+margin_left = 64.0
+margin_top = 16.0
+margin_right = 104.0
+margin_bottom = 30.0
+text = "1"
+align = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="QuantityPanel/QuantityBuy"]
+margin_left = -32.0
+margin_right = -12.0
+margin_bottom = 20.0
+text = "-"
+
+[node name="Button" type="Button" parent="QuantityPanel/QuantityBuy"]
+margin_left = 48.0
+margin_right = 68.0
+margin_bottom = 20.0
+text = "+"
+
+[node name="ConfirmBuy" type="Button" parent="QuantityPanel"]
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 100.0
+margin_bottom = 68.0
+text = "Buy"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CloseButton" to="CloseButton" method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="ShopItem" to="ShopItem" method="_on_ShopItem_pressed"]
+[connection signal="pressed" from="ShopItem2" to="ShopItem2" method="_on_ShopItem_pressed"]
+[connection signal="pressed" from="QuantityPanel/CloseButton2" to="QuantityPanel/CloseButton2" method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="QuantityPanel/QuantityBuy/Button2" to="QuantityPanel/QuantityBuy" method="_on_Button2_pressed"]
+[connection signal="pressed" from="QuantityPanel/QuantityBuy/Button" to="QuantityPanel/QuantityBuy" method="_on_Button_pressed"]
+[connection signal="pressed" from="QuantityPanel/ConfirmBuy" to="QuantityPanel/ConfirmBuy" method="_on_ConfirmBuy_pressed"]

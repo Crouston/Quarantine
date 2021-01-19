@@ -50,6 +50,8 @@ func move_state(delta):
 	
 	velocity =  move_and_slide(velocity)
 	
+	if velocity != Vector2.ZERO && !$AudioStreamPlayer2D.playing:
+		$AudioStreamPlayer2D.play()
 #	if Input.is_action_just_pressed("attack"):
 #		state = ATTACK
 

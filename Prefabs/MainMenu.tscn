@@ -1,20 +1,115 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Play.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/3.1 New Game Button - NEUTRAL.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/3.3 New Game Button - CLICKED.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/3.2 New Game Button - SELECTED.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Quit.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/UI/6.1 Quit Button - NEUTRAL.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/6.3 Quit Button - CLICKED.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/6.2 Quit Button - SELECTED.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/1. Main Menu Background.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/2. Game Logo and Title.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/5.1 Credits Button - NEUTRAL.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/5.3 Credits Button - CLICKED.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/5.2 Credits Button - SELECTED.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 192, 48 )
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_right = 320.0
+margin_bottom = 176.0
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+margin_left = 96.0
+margin_right = 208.0
+margin_bottom = 128.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Play" type="Button" parent="CanvasLayer"]
-margin_left = 128.0
-margin_top = 80.0
-margin_right = 192.0
-margin_bottom = 100.0
-text = "Play"
+margin_left = 104.0
+margin_top = 96.0
+margin_right = 204.0
+margin_bottom = 126.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 scene_path = "res://Sprites/Tutorial.tscn"
+
+[node name="Quit" type="Button" parent="CanvasLayer"]
+margin_left = 104.0
+margin_top = 144.0
+margin_right = 204.0
+margin_bottom = 174.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credit" type="Button" parent="CanvasLayer"]
+margin_left = 104.0
+margin_top = 120.0
+margin_right = 204.0
+margin_bottom = 150.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="CanvasLayer/Play" to="CanvasLayer/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Quit" to="CanvasLayer/Quit" method="_on_Quit_pressed"]

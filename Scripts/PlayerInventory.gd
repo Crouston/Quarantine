@@ -2,7 +2,7 @@ extends Node
 
 const SlotClass = preload("res://Prefabs/Slot.gd")
 const ItemClass = preload("res://Prefabs/Item.gd")
-const NUM_INVENTORY_SLOTS = 16
+const NUM_INVENTORY_SLOTS = 12
 
 var inventory = {
 	0: ["Iron Sword", 1],  #--> slot_index: [item_name, item_quantity]

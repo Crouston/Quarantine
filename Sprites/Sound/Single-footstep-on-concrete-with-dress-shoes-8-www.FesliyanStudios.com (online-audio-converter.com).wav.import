@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Single-footstep-on-concrete-with-dress-shoes-8-www.FesliyanStudios.com (online-audio-converter.com).wav-9ff70dc21239d9e2037745f66a5c4349.sample"
+
+[deps]
+
+source_file="res://Sprites/Sound/Single-footstep-on-concrete-with-dress-shoes-8-www.FesliyanStudios.com (online-audio-converter.com).wav"
+dest_files=[ "res://.import/Single-footstep-on-concrete-with-dress-shoes-8-www.FesliyanStudios.com (online-audio-converter.com).wav-9ff70dc21239d9e2037745f66a5c4349.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

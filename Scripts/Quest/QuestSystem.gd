@@ -1,9 +1,6 @@
 extends Node
 
-onready var available = $Available
-onready var taken = $Taken
-onready var completed = $Completed
-
+var currentQuest : String
 var questNumber = 0
 var questTaken:String
 var completeNumber = 0

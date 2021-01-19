@@ -1,7 +1,7 @@
 extends Panel
 
-var default_tex = preload("res://Sprites/Inventory/item_slot_default_background.png")
-var empty_tex = preload("res://Sprites/Inventory/item_slot_empty_background.png")
+var default_tex = preload("res://Sprites/Inventory/1. Inventory Slot.png")
+var empty_tex = preload("res://Sprites/Inventory/2. Inventory Slot - SELECTED.png")
 
 var default_style: StyleBoxTexture = null
 var empty_style: StyleBoxTexture = null

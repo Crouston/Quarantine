@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Single-Barefoot-Footstep-B-www.fesliyanstudios.com (online-audio-converter.com).wav-96134b0369aa9a08970af6e3e8ac9570.sample"
+
+[deps]
+
+source_file="res://Sprites/Sound/Single-Barefoot-Footstep-B-www.fesliyanstudios.com (online-audio-converter.com).wav"
+dest_files=[ "res://.import/Single-Barefoot-Footstep-B-www.fesliyanstudios.com (online-audio-converter.com).wav-96134b0369aa9a08970af6e3e8ac9570.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

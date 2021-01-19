@@ -18,16 +18,23 @@ export var quantityQuest: int
 var isTaken = false
 var isCompleted = false
 
-#func _ready():
-#	for itemQuest in get_children():
-#		itemQuest.connect("itemFound",self,getItem())
+func _ready():
+	if !isTaken:
+		for itemQuest in get_children():
+			itemQuest.hide()
+	if isCompleted:
+		get_parent().npcType = get_parent().Type.normal
+		queue_free()
 
 func getItem():
 	if quantityQuest > 0:
 		quantityQuest -= 1
 
 func OnTaken():
+	for itemQuest in get_children():
+			itemQuest.show()
 	isTaken = true
+	QuestSystem.currentQuest = title
 	quest_status = questStatus.taken
 	QuestSystem.questUI.text = description
 
@@ -35,6 +42,7 @@ func OnCompleted():
 	isCompleted = true
 	quest_status = questStatus.completed
 	QuestSystem.questUI.text = description + " completed"
+	QuestSystem.currentQuest = ""
 	PlayerInventory.add_item(rewardItems,quantityReward)
 
 
