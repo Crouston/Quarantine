@@ -2,7 +2,9 @@ extends Node2D
 
 
 onready var canvasLayer = $CanvasLayer
+enum tutorialSet{started,movement,useItem,end}
+var curSet = tutorialSet.started
 
 func _ready():
-	for dialogue in canvasLayer.get_children():
-		dialogue.initiate_dialogue()
+	if curSet == tutorialSet.started:
+		canvasLayer.get_child(0).initiate_dialogue()

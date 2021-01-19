@@ -679,11 +679,10 @@ dialogue_file_path = "res://src/Data/Bambang.json"
 script = ExtResource( 12 )
 
 [node name="QuestUI" parent="UserInterface" instance=ExtResource( 21 )]
-visible = false
-margin_left = 64.0
-margin_top = 32.0
-margin_right = 232.0
-margin_bottom = 128.0
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 112.0
+margin_bottom = 64.0
 
 [node name="Inventory" parent="UserInterface" instance=ExtResource( 8 )]
 visible = false

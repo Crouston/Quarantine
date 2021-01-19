@@ -8,7 +8,7 @@ var questNumber = 0
 var questTaken:String
 var completeNumber = 0
 var questComplete:String
-var questUI :TextEdit
+var questUI 
 
 #func _ready():
 #	for quest in available.get_quests():

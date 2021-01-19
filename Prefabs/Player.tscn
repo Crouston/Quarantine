@@ -539,6 +539,8 @@ script = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
 position = Vector2( 1.41364, -8.86734 )
 shape = SubResource( 37 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 [connection signal="body_entered" from="PickupZone" to="PickupZone" method="_on_PickupZone_body_entered"]
 [connection signal="body_exited" from="PickupZone" to="PickupZone" method="_on_PickupZone_body_exited"]
 
