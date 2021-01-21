@@ -1,6 +1,6 @@
 extends Node2D
 
-var countdown = 30
+var countdown = 10
 var countdown2 = 30
 var countdown3 = 180
 enum IntroductionSection{outside,meetFerry,meetRegina,end,afterEnd}
@@ -37,8 +37,11 @@ func _process(delta):
 #	pass
 
 func get_dialogue():
-	if !shopFirstTime:
+	if !shopFirstTime && cursec == IntroductionSection.meetRegina:
 		cursec = IntroductionSection.end
 		QuestSystem.questUI.text = "go around town"
 		$CanvasLayer.get_child(5).initiate_dialogue()
 		shopFirstTime = true
+
+func getShopDialogue():
+	$CanvasLayer.get_child(4).initiate_dialogue()

@@ -35,7 +35,7 @@
     "StackSize": 10,
     "Description": "It will patch you up"
   },
-  "Antiboitics": {
+  "Antibiotics": {
     "ItemCategory": "Consumable",
     "AddHealth": 30,
     "DecInfection":10,

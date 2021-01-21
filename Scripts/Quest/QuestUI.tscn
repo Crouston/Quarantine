@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Quest/QuestUI.gd" type="Script" id=1]
 [ext_resource path="res://Font/Minecraft.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.207843, 0.207843, 0.207843, 0.533333 )
+
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 8
+size = 6
 font_data = ExtResource( 2 )
 
 [node name="QuestUI" type="Panel"]
@@ -21,9 +24,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Panel" type="Panel" parent="."]
+margin_top = 8.0
+margin_right = 72.0
+margin_bottom = 32.0
+custom_styles/panel = SubResource( 4 )
+
 [node name="QuestText" type="RichTextLabel" parent="."]
-margin_right = 112.0
-margin_bottom = 40.0
+margin_top = 8.0
+margin_right = 72.0
+margin_bottom = 32.0
 size_flags_stretch_ratio = 0.0
 custom_fonts/mono_font = SubResource( 2 )
 custom_fonts/normal_font = SubResource( 3 )

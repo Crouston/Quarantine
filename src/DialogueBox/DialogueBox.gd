@@ -17,10 +17,10 @@ onready var text_label:= get_node("Panel/Columns/Text") as Label
 
 onready var button_next:= get_node("Panel/Columns/ButtonNext") as Button
 onready var button_finished:= get_node("Panel/Columns/ButtonFinished") as Button
-
+export var Intro = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if !questDialogue:
+	if !questDialogue && !Intro:
 		get_node(interaction_component_nodepath).connect("show_dialogue", self, "initiate_dialogue")
 	elif questDialogue:
 		if dialogueCompleted:

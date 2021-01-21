@@ -1942,8 +1942,8 @@ script = ExtResource( 73 )
 [node name="Pause" parent="UserInterface" instance=ExtResource( 104 )]
 
 [node name="QuestUI" parent="UserInterface" instance=ExtResource( 76 )]
-margin_top = 24.0
-margin_bottom = 64.0
+margin_top = 40.0
+margin_bottom = 72.0
 
 [node name="HealthBar" parent="UserInterface" instance=ExtResource( 74 )]
 margin_left = 8.0
@@ -10657,6 +10657,7 @@ shape = SubResource( 57 )
 [node name="Farm_House 2" type="Node2D" parent="YSort/House/YSort"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="YSort/House/YSort/Farm_House 2"]
+mode = 1
 
 [node name="Sprite" type="Sprite" parent="YSort/House/YSort/Farm_House 2/RigidBody2D"]
 position = Vector2( 4744, 2656 )
@@ -24626,11 +24627,11 @@ shape = SubResource( 159 )
 [node name="Quest" parent="YSort/Introduction/Npc2" instance=ExtResource( 87 )]
 isFerry = true
 title = "Get Ingridient"
-description = "Get ingridient and sent to Ferry"
+description = "Get 3 ingridients and sent to Ferry"
 quantityQuest = 3
 
 [node name="ItemQuest" parent="YSort/Introduction/Npc2/Quest" instance=ExtResource( 86 )]
-position = Vector2( 3152, -704 )
+position = Vector2( 3432, 736 )
 
 [node name="Sprite" parent="YSort/Introduction/Npc2/Quest/ItemQuest" index="0"]
 texture = ExtResource( 88 )
@@ -24642,7 +24643,7 @@ position = Vector2( 3312, 720 )
 texture = ExtResource( 89 )
 
 [node name="ItemQuest3" parent="YSort/Introduction/Npc2/Quest" instance=ExtResource( 86 )]
-position = Vector2( 3456, -312 )
+position = Vector2( 3448, 832 )
 
 [node name="Sprite" parent="YSort/Introduction/Npc2/Quest/ItemQuest3" index="0"]
 texture = ExtResource( 90 )
@@ -24699,7 +24700,8 @@ margin_top = 88.0
 margin_right = 16.0
 margin_bottom = 88.0
 interaction_component_nodepath = NodePath("../../Npc")
-dialogue_file_path = "res://src/Data/2. Rega - Ferry (First Interaction).json"
+dialogue_file_path = "res://src/Data/2. Player Shopping Tutorial.json"
+Intro = true
 
 [node name="DialogueBox7" parent="YSort/Introduction/CanvasLayer" instance=ExtResource( 81 )]
 visible = false
@@ -24709,6 +24711,7 @@ margin_right = 16.0
 margin_bottom = 88.0
 interaction_component_nodepath = NodePath("../../Npc")
 dialogue_file_path = "res://src/Data/3. Player After Shopping.json"
+Intro = true
 
 [node name="DialogueBox8" parent="YSort/Introduction/CanvasLayer" instance=ExtResource( 81 )]
 visible = false
@@ -24718,6 +24721,7 @@ margin_right = 16.0
 margin_bottom = 88.0
 interaction_component_nodepath = NodePath("../../Npc")
 dialogue_file_path = "res://src/Data/1. Rega - Dialog END TUTORIAL.json"
+Intro = true
 
 [node name="End" type="Panel" parent="YSort/Introduction/CanvasLayer"]
 visible = false
@@ -24922,8 +24926,8 @@ margin_bottom = 88.0
 interaction_component_nodepath = NodePath("../../YSort/Npc2")
 dialogue_file_path = "res://src/Data/1. Rega - Jorjio.json"
 [connection signal="pressed" from="UserInterface/Pause" to="UserInterface" method="Pause"]
+[connection signal="callDialog" from="UserInterface/ShopPanel" to="YSort/Introduction" method="getShopDialogue"]
 [connection signal="pressed" from="UserInterface/ShopPanel/CloseButton" to="YSort/Introduction" method="get_dialogue"]
-[connection signal="pressed" from="UserInterface/ShopPanel/QuantityPanel/ConfirmBuy" to="YSort/Introduction" method="get_dialogue"]
 [connection signal="itemFound" from="YSort/Introduction/Npc2/Quest/ItemQuest" to="YSort/Introduction/Npc2/Quest" method="getItem"]
 [connection signal="itemFound" from="YSort/Introduction/Npc2/Quest/ItemQuest2" to="YSort/Introduction/Npc2/Quest" method="getItem"]
 [connection signal="itemFound" from="YSort/Introduction/Npc2/Quest/ItemQuest3" to="YSort/Introduction/Npc2/Quest" method="getItem"]
