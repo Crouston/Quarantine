@@ -1,0 +1,6 @@
+{
+	"001" : {"name":"Rega", "text":"Let's check your inventory then. Press 'I' to open inventory."},
+	"002" : {"name":"Rega", "text":"As you can see you have few slot inside inventory, please use it wisely!"},
+	"003" : {"name":"Rega", "text":"To use item in inventory, you need to click it first and then press 'F' to use it."},
+	"004" : {"name":"Rega", "text":"In this case, please use the mask and close the inventory by click 'I' before we continue."}
+}

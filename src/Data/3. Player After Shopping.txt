@@ -1,0 +1,14 @@
+{
+	"001" : {"name":"Rega", "text":"It looks nice. Thank you for the food."},
+	"002" : {"name":"Regina", "text":"Your welcome, Rega. Thank you for buying in my shop."},
+	"003" : {"name":"Regina", "text":"You are helping me a lot in this crisis."},
+	"004" : {"name":"Regina", "text":"This pandemic has brought devastating effect on the city's economy."},
+	"005" : {"name":"Rega", "text":"Yeah, that's true."},
+	"006" : {"name":"Rega", "text":"After the publication of the pandemic, this city looks like abandoned."},
+	"007" : {"name":"Rega", "text":"Everyone keep them self inside their house and the public activity has been stopped."},
+	"008" : {"name":"Rega", "text":"But life still goes on, I believe that this will be end soon. We just need to hold on and survive."},
+	"009" : {"name":"Regina", "text":"Yeah, you're right. We can't surrender on this condition."},
+	"010" : {"name":"Regina", "text":"Hey, please come again if you need to buy something.                 (Full of Hope)"},
+	"011" : {"name":"Rega", "text":"Yeah, don't worry, hahaha."},
+	"012" : {"name":"Rega", "text":"Okay then, i want to go and check the city. See ya...               (waving hand)"}
+}

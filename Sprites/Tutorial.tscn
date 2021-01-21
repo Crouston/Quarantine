@@ -1,33 +1,190 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/DialogueBox/DialogueBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/InteractionComponents/Npc.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/TutorialManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/Main_Character_House.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Quest/QuestUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/UserInterface.gd" type="Script" id=7]
+[ext_resource path="res://Prefabs/HealthBar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Inventory.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Portal.gd" type="Script" id=10]
+[ext_resource path="res://Prefabs/ItemDrop.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/Inventory/Antibiotics.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Inventory/Medic Kit.png" type="Texture" id=13]
+[ext_resource path="res://Prefabs/PausePanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Prefabs/Money.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Prefabs/Pause.tscn" type="PackedScene" id=16]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:item_name")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 16 )
 
 [node name="Tutorial" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 152, 88 )
+position = Vector2( 192, 224 )
+scale = Vector2( 1.5, 1.5 )
+current = true
 
 [node name="YSort" type="YSort" parent="."]
 position = Vector2( 8, 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Main_Character_House" parent="YSort" instance=ExtResource( 5 )]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 120, 72 )
+position = Vector2( 184, 216 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../Camera2D")
 
 [node name="Npc" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 224, 64 )
+position = Vector2( -152, 24 )
 scale = Vector2( 0.16, 0.16 )
+
+[node name="Medic Kit" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 216, 240 )
+item_name = "Medic Kit"
+
+[node name="Sprite" parent="YSort/Medic Kit" index="0"]
+texture = ExtResource( 13 )
+
+[node name="Medic Kit2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 848, 184 )
+item_name = "Medic Kit"
+
+[node name="Sprite" parent="YSort/Medic Kit2" index="0"]
+texture = ExtResource( 13 )
+
+[node name="Medic Kit3" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 976, 440 )
+item_name = "Antibiotics"
+
+[node name="Sprite" parent="YSort/Medic Kit3" index="0"]
+texture = ExtResource( 12 )
+
+[node name="AnimationPlayer" parent="YSort/Medic Kit3" index="2"]
+"anims/New Anim" = SubResource( 1 )
 
 [node name="TutorialManager" parent="." instance=ExtResource( 4 )]
 
+[node name="Portal" type="Area2D" parent="TutorialManager"]
+visible = false
+position = Vector2( 8, 8 )
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 10 )
+scene_path = "res://Scene/World.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialManager/Portal"]
+position = Vector2( 384, 720 )
+shape = SubResource( 2 )
+
+[node name="UserInterface" type="CanvasLayer" parent="TutorialManager"]
+script = ExtResource( 7 )
+
+[node name="QuestUI" parent="TutorialManager/UserInterface" instance=ExtResource( 6 )]
+margin_top = 24.0
+margin_bottom = 64.0
+
+[node name="Inventory" parent="TutorialManager/UserInterface" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 48, 24 )
+
+[node name="HealthBar" parent="TutorialManager/UserInterface" instance=ExtResource( 8 )]
+margin_left = 8.0
+margin_top = 144.0
+margin_right = -312.0
+margin_bottom = -36.0
+
+[node name="PausePanel" parent="TutorialManager/UserInterface" instance=ExtResource( 14 )]
+visible = false
+
+[node name="Money" parent="TutorialManager/UserInterface" instance=ExtResource( 15 )]
+margin_left = 232.0
+margin_right = 318.0
+
+[node name="Pause" parent="TutorialManager/UserInterface" instance=ExtResource( 16 )]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="TutorialManager"]
+layer = 2
 
 [node name="DialogueBox" parent="TutorialManager/CanvasLayer" instance=ExtResource( 2 )]
+visible = false
 margin_left = 8.0
 margin_top = 96.0
 margin_right = 8.0
 margin_bottom = 96.0
+tutorialDialogue = true
 interaction_component_nodepath = NodePath("../../../YSort/Npc")
-dialogue_file_path = "res://src/Data/0. Starting - Movement.json"
+dialogue_file_path = "res://src/Data/1. Starting - First Control.json"
+
+[node name="DialogueBox2" parent="TutorialManager/CanvasLayer" instance=ExtResource( 2 )]
+visible = false
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 8.0
+margin_bottom = 96.0
+tutorialDialogue = true
+interaction_component_nodepath = NodePath("../../../YSort/Npc")
+dialogue_file_path = "res://src/Data/2. Starting - Collect Item.json"
+
+[node name="DialogueBox3" parent="TutorialManager/CanvasLayer" instance=ExtResource( 2 )]
+visible = false
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 8.0
+margin_bottom = 96.0
+tutorialDialogue = true
+interaction_component_nodepath = NodePath("../../../YSort/Npc")
+dialogue_file_path = "res://src/Data/3. Starting - Inventory and Use Item.json"
+
+[node name="DialogueBox4" parent="TutorialManager/CanvasLayer" instance=ExtResource( 2 )]
+visible = false
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 8.0
+margin_bottom = 96.0
+tutorialDialogue = true
+interaction_component_nodepath = NodePath("../../../YSort/Npc")
+dialogue_file_path = "res://src/Data/4. Starting - End.json"
+[connection signal="body_entered" from="TutorialManager/Portal" to="TutorialManager/Portal" method="_on_Portal_body_entered"]
+[connection signal="pressed" from="TutorialManager/UserInterface/Pause" to="TutorialManager/UserInterface" method="Pause"]
+
+[editable path="YSort/Medic Kit"]
+
+[editable path="YSort/Medic Kit2"]
+
+[editable path="YSort/Medic Kit3"]

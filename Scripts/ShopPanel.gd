@@ -10,6 +10,8 @@ extends Panel
 func _ready():
 	pass # Replace with function body.
 
+func open_shop():
+	visible = !visible
 
 func open_quantity():
 	$QuantityPanel.visible = !$QuantityPanel.visible

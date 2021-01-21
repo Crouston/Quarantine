@@ -5,8 +5,7 @@ const ItemClass = preload("res://Prefabs/Item.gd")
 const NUM_INVENTORY_SLOTS = 12
 
 var inventory = {
-	0: ["Iron Sword", 1],  #--> slot_index: [item_name, item_quantity]
-	1: ["Tree Branch", 5]
+	0:["Medic Kit",2]
 }
 
 func add_item(item_name, item_quantity):

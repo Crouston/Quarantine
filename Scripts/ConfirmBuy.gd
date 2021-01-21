@@ -17,6 +17,8 @@ func _ready():
 
 
 func _on_ConfirmBuy_pressed():
-	ShopManager.buy_item()
-	get_parent().visible = false
-	get_parent().get_parent().visible = false
+	
+	if GameManager.money >= ShopManager.get_price():
+		ShopManager.buy_item()
+		get_parent().visible = false
+		get_parent().get_parent().visible = false

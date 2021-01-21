@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/CharStat.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Money.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/UI/8.1 Health Rate Bar - BASE.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/8.2 Health Rate Bar - FILL.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/7.2 Infection Rate Bar - FILL.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/7.1 Infection Rate Bar - BASE.png" type="Texture" id=6]
+[ext_resource path="res://Font/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Sprites/4. In-game Money Counter.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/Player.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/4.1 Side 2_Var 2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/6. Infection Rate Icon.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/7. Health Rate Icon.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 101, 56 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 64, 16 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+font_data = ExtResource( 7 )
+
+[node name="CharStat" type="Panel"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 123.0
+margin_bottom = 83.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 24.1176, 38.1764 )
+scale = Vector2( 1.5, 1.25 )
+texture = ExtResource( 9 )
+vframes = 11
+hframes = 5
+frame = 10
+
+[node name="Money" type="Panel" parent="."]
+margin_left = 55.3529
+margin_top = 19.7941
+margin_right = 111.353
+margin_bottom = 31.7941
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Money"]
+margin_left = 4.0
+margin_right = 53.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.819608, 0, 1 )
+text = "250"
+align = 2
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = 66.8564
+margin_top = 34.7941
+margin_right = 109.856
+margin_bottom = 43.7941
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 56.7399
+margin_top = 35.4584
+margin_right = 66.7399
+margin_bottom = 44.4584
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfectionBar" type="TextureProgress" parent="."]
+margin_left = 66.8564
+margin_top = 47.8314
+margin_right = 109.856
+margin_bottom = 56.8314
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 52.3017
+margin_top = 44.0575
+margin_right = 68.3017
+margin_bottom = 60.0575
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

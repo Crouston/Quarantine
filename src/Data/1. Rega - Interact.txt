@@ -1,0 +1,5 @@
+{
+	"001" : {"name":"Rega", "text":"Oh, he is outside the house. I don't need to knock the door then."},
+	"002" : {"name":"Rega", "After you close enough to NPC, press 'E' to interact with him / her."},
+	"003" : {"name":"Rega", "Let's go to his front yard."}
+}

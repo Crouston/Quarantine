@@ -1,73 +1,404 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Scripts/QuantityBuy.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/ShopPanel.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/CloseButton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/ConfirmBuy.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/ShopItem.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Shop/1. Background.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Shop/2. Shop Table.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/0.1 NPC 2_Sprite - Iddle.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Shop/15.1 Leave Shop Button - NEUTRAL.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Shop/15.2 Leave Shop Button - CLICKED.png" type="Texture" id=10]
+[ext_resource path="res://Font/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Sprites/Inventory/2. Inventory Slot - SELECTED.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Inventory/1. Inventory Slot.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UI/1. DIalog Box.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Shop/8.2 But Button - CLICKED.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Shop/8.1 But Button - NEUTRAL.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Shop/5. Item Price Tag.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Inventory/Salad.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Inventory/Fried Egg.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Inventory/Fried Rice.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Inventory/Grilled Beef.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Shop/7.2 Item Frame - CLICKED.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Inventory/Cooked Vegetables.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Inventory/Fried Chicken.png" type="Texture" id=24]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 365, 208 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 80, 16 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 80, 16 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 80, 16 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 44, 16 )
+modulate_color = Color( 0.654902, 0.654902, 0.654902, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 44, 16 )
+modulate_color = Color( 0.372549, 0.372549, 0.372549, 1 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 44, 16 )
+
+[sub_resource type="DynamicFont" id=8]
+outline_color = Color( 0.513726, 0.243137, 0.0352941, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 44, 16 )
+modulate_color = Color( 0.654902, 0.654902, 0.654902, 1 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 44, 16 )
+modulate_color = Color( 0.372549, 0.372549, 0.372549, 1 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 192, 64 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 26, 26 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 20, 20 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 26, 26 )
+
+[sub_resource type="StyleBoxTexture" id=16]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 20, 20 )
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 11 )
 
 [node name="ShopPanel" type="Panel"]
-margin_left = 40.0
-margin_top = 32.0
-margin_right = 256.0
-margin_bottom = 152.0
+margin_right = 320.0
+margin_bottom = 184.0
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 264, 104 )
+scale = Vector2( 3, 2.5 )
+texture = ExtResource( 8 )
+hframes = 4
+frame = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 312.0
+margin_bottom = 176.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CloseButton" type="Button" parent="."]
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 12.0
-margin_bottom = 12.0
-text = "X"
+margin_right = 72.0
+margin_bottom = 16.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 48.0
+margin_top = 16.0
+margin_right = 88.0
+margin_bottom = 56.0
+texture = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 19 )
+expand = true
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 104.0
+margin_top = 16.0
+margin_right = 144.0
+margin_bottom = 56.0
+texture = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect3"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+margin_left = 160.0
+margin_top = 16.0
+margin_right = 200.0
+margin_bottom = 56.0
+texture = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect4"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 23 )
+expand = true
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+margin_left = 48.0
+margin_top = 72.0
+margin_right = 88.0
+margin_bottom = 112.0
+texture = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect5"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 20 )
+expand = true
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+margin_left = 104.0
+margin_top = 72.0
+margin_right = 144.0
+margin_bottom = 112.0
+texture = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect6"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 21 )
+expand = true
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+margin_left = 160.0
+margin_top = 72.0
+margin_right = 200.0
+margin_bottom = 112.0
+texture = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect7"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 18 )
+expand = true
+
 [node name="ShopItem" type="Button" parent="."]
-margin_left = 32.0
-margin_top = 24.0
-margin_right = 80.0
-margin_bottom = 44.0
-text = "Slime"
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 69.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.513726, 0.243137, 0.0352941, 1 )
+text = "$ 5"
 script = ExtResource( 5 )
-ItemName = "Slime Potion"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ItemName = "Fried Egg"
+ItemPrice = 5
 
 [node name="ShopItem2" type="Button" parent="."]
-margin_left = 104.0
-margin_top = 24.0
-margin_right = 161.0
-margin_bottom = 44.0
-text = "MedKit"
+margin_left = 96.0
+margin_top = 48.0
+margin_right = 152.0
+margin_bottom = 69.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.513726, 0.243137, 0.0352941, 1 )
+text = "$ 5"
 script = ExtResource( 5 )
-ItemName = "Medic Kit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ItemName = "Fried Chicken"
+ItemPrice = 5
+
+[node name="ShopItem3" type="Button" parent="."]
+margin_left = 152.0
+margin_top = 48.0
+margin_right = 208.0
+margin_bottom = 69.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.513726, 0.243137, 0.0352941, 1 )
+text = "$ 10"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ItemName = "Cooked Vegetables"
+ItemPrice = 10
+
+[node name="ShopItem4" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 104.0
+margin_right = 96.0
+margin_bottom = 125.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.513726, 0.243137, 0.0352941, 1 )
+text = "$ 10"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ItemName = "Fried Rice"
+ItemPrice = 10
+
+[node name="ShopItem5" type="Button" parent="."]
+margin_left = 96.0
+margin_top = 104.0
+margin_right = 152.0
+margin_bottom = 125.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.513726, 0.243137, 0.0352941, 1 )
+text = "$ 13"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ItemName = "Grilled Beef"
+ItemPrice = 13
+
+[node name="ShopItem6" type="Button" parent="."]
+margin_left = 152.0
+margin_top = 104.0
+margin_right = 208.0
+margin_bottom = 125.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.513726, 0.243137, 0.0352941, 1 )
+text = "$ 15"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ItemName = "Salad"
+ItemPrice = 15
 
 [node name="QuantityPanel" type="Panel" parent="."]
 visible = false
-margin_left = 24.0
+margin_left = 48.0
 margin_top = 16.0
-margin_right = 192.0
-margin_bottom = 104.0
+margin_right = 232.0
+margin_bottom = 144.0
+custom_styles/panel = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CloseButton2" type="Button" parent="QuantityPanel"]
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 12.0
-margin_bottom = 12.0
+margin_left = 0.854645
+margin_top = 8.68759
+margin_right = 20.8546
+margin_bottom = 28.6876
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
 text = "X"
 script = ExtResource( 3 )
 
 [node name="QuantityBuy" type="Label" parent="QuantityPanel"]
-margin_left = 64.0
-margin_top = 16.0
-margin_right = 104.0
-margin_bottom = 30.0
+margin_left = 75.5727
+margin_top = 36.2538
+margin_right = 115.573
+margin_bottom = 51.2538
+custom_fonts/font = SubResource( 14 )
 text = "1"
 align = 1
 script = ExtResource( 1 )
@@ -79,20 +410,32 @@ __meta__ = {
 margin_left = -32.0
 margin_right = -12.0
 margin_bottom = 20.0
+custom_styles/pressed = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
 text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="QuantityPanel/QuantityBuy"]
 margin_left = 48.0
 margin_right = 68.0
 margin_bottom = 20.0
+custom_styles/pressed = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
 text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ConfirmBuy" type="Button" parent="QuantityPanel"]
-margin_left = 64.0
-margin_top = 48.0
-margin_right = 100.0
-margin_bottom = 68.0
-text = "Buy"
+margin_left = 67.5727
+margin_top = 68.2538
+margin_right = 123.573
+margin_bottom = 92.2538
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -100,6 +443,10 @@ __meta__ = {
 [connection signal="pressed" from="CloseButton" to="CloseButton" method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="ShopItem" to="ShopItem" method="_on_ShopItem_pressed"]
 [connection signal="pressed" from="ShopItem2" to="ShopItem2" method="_on_ShopItem_pressed"]
+[connection signal="pressed" from="ShopItem3" to="ShopItem3" method="_on_ShopItem_pressed"]
+[connection signal="pressed" from="ShopItem4" to="ShopItem4" method="_on_ShopItem_pressed"]
+[connection signal="pressed" from="ShopItem5" to="ShopItem5" method="_on_ShopItem_pressed"]
+[connection signal="pressed" from="ShopItem6" to="ShopItem6" method="_on_ShopItem_pressed"]
 [connection signal="pressed" from="QuantityPanel/CloseButton2" to="QuantityPanel/CloseButton2" method="_on_CloseButton_pressed"]
 [connection signal="pressed" from="QuantityPanel/QuantityBuy/Button2" to="QuantityPanel/QuantityBuy" method="_on_Button2_pressed"]
 [connection signal="pressed" from="QuantityPanel/QuantityBuy/Button" to="QuantityPanel/QuantityBuy" method="_on_Button_pressed"]

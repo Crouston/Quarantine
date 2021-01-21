@@ -1,0 +1,18 @@
+{
+	"001" : {"name":"Regina", "text":"Welcome, Rega. How are you doing? Do you need anyting?"},
+	"002" : {"name":"Rega", "text":"Hello, Gina. I'm good, how about you?"},
+	"003" : {"name":"Rega", "text":"I'm hungry, i want to buy some foods. Do you have anything that i can buy?"},
+	"004" : {"name":"Regina", "text":"I'm good, thank you."},
+	"005" : {"name":"Regina", "text":"Hahaha, please help yourself. I've few foods in here."},
+	"006" : {"name":"Rega", "text":"Hahahaha, okay then."},
+	"007" : {"name":"Regina", "text":"Hello, there. You've know my name. I'm Regina, the shopkeeper."},
+	"008" : {"name":"Regina", "text":"As you can see, my shop provide foods and also it's ingredients."},
+	"009" : {"name":"Regina", "text":"Before you start buying something, you must remember to have some money first."},
+	"010" : {"name":"Regina", "text":"Hahahah, i'm joking, please don't take it to heart."},
+	"011" : {"name":"Regina", "text":"Now, let me show you how to buy something from shop."},
+	"012" : {"name":"Regina", "text":"First, choose the item you want to buy. You can buy item that not SOLD OUT."},
+	"013" : {"name":"Regina", "text":"Second, click the PRICETAG of the item and then you'll set the quantity of the item you want to buy."},
+	"014" : {"name":"Regina", "text":"After you set the quantity of the item, there will be shown BUY button."},
+	"015" : {"name":"Regina", "text":"Click it to confirm the transaction."},
+	"016" : {"name":"Regina", "text":"After you finish shopping, click the LEAVE button on the top left corner"}
+}

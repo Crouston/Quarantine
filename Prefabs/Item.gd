@@ -48,4 +48,5 @@ func decrease_item_quantity(amount_to_remove):
 
 func use_item(nm):
 	var add_health = JsonData.item_data[nm]["AddHealth"]
-	GameManager.player.set_health(add_health)
+	var dec_infection = JsonData.item_data[nm]["DecInfection"]
+	GameManager.player.set_health(add_health,dec_infection)

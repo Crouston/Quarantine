@@ -1,0 +1,15 @@
+{
+	"001" : {"name":"Rega", "text":"Here's your item, fat boy."},
+	"002" : {"name":"Ferry", "text":"Ha ha ha. thank you so much. Now i can make fresh salad."},
+	"003" : {"name":"Rega", "Hey, where is the information, pal?"},
+	"004" : {"name":"Ferry", "text":"Oh, sorry. Okay then....           (Trying to be serious)"},
+	"005" : {"name":"Rega", "C'mon, don't waste my time, i need to buy some foods. The trip makes me tired and hungry."},
+	"006" : {"name":"Ferry", "text":"Chill, Man. Remember when you said this condition of the pandemic, the government, and the city lab?"},
+	"007" : {"name":"Rega", "Yes, then what?"},
+	"008" : {"name":"Ferry", "Your insting is 75% correct, but we need more proof."},
+	"009" : {"name":"Rega", "text":"WHAT?!?!               (Shocked Face)"},
+	"010" : {"name":"Ferry", "text":"Yes, like i said, but it just 75% possibility that you are correct."},
+	"011" : {"name":"Rega", "text":"This is crazy then ever, man. We need to investigate it."},
+	"012" : {"name":"Ferry", "text":"That's not a problem, but we need to play it cool, understand? I'll give you a call when I've more information."},
+	"013" : {"name":"Rega", "text":"Okay then, i want to go to buy some food, see you later."}
+}

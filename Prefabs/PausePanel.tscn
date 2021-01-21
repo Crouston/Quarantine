@@ -1,0 +1,133 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Sprites/UI/Pause/6. Pause Menu - BASE BOX.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/Pause/1. Background 1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Pause/8.1 Save Game Button - NEUTRAL.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Pause/8.2 Save Game Button - SELECTED.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Pause/8.3 Save Game Button - CLICKED.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Pause/9.1 Load Game Button - NEUTRAL.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/Pause/7.1 Resume Button - NEUTRAL.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/Pause/10.2 Quit Button - SELECTED.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Pause/9.3 Load Game Button - CLICKED.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/Pause/9.2 Load Game Button - SELECTED.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Pause/10.1 Quit Button - NEUTRAL.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Pause/10.3 Quit Button - CLICKED.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Resume.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Play.gd" type="Script" id=14]
+[ext_resource path="res://Sprites/UI/Pause/7.2 Resume Button - SELECTED.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/Pause/7.3 Resume Button - CLICKED.png" type="Texture" id=16]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 320, 192 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 120, 140 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 104, 24 )
+
+[node name="PausePanel" type="Panel"]
+margin_right = 320.0
+margin_bottom = 184.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 104.0
+margin_top = 32.0
+margin_right = 216.0
+margin_bottom = 160.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="Panel"]
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 104.0
+margin_bottom = 48.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+script = ExtResource( 13 )
+
+[node name="Button2" type="Button" parent="Panel"]
+margin_left = 8.0
+margin_top = 48.0
+margin_right = 104.0
+margin_bottom = 72.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+
+[node name="Button3" type="Button" parent="Panel"]
+margin_left = 8.0
+margin_top = 72.0
+margin_right = 104.0
+margin_bottom = 96.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+
+[node name="Quit" type="Button" parent="Panel"]
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 104.0
+margin_bottom = 120.0
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+script = ExtResource( 14 )
+scene_path = "res://Prefabs/MainMenu.tscn"
+[connection signal="pressed" from="Panel/Resume" to="Panel/Resume" method="_on_Resume_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="Panel/Quit" method="_on_Play_pressed"]

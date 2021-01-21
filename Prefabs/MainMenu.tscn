@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/Play.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/3.1 New Game Button - NEUTRAL.png" type="Texture" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Sprites/UI/5.1 Credits Button - NEUTRAL.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/UI/5.3 Credits Button - CLICKED.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/UI/5.2 Credits Button - SELECTED.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UI/4.1 Load Game Button - NEUTRAL.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/4.2 Load Game Button - SELECTED.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/4.3 Load Game Button - CLICKED.png" type="Texture" id=16]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
@@ -50,6 +53,18 @@ region_rect = Rect2( 0, 0, 192, 48 )
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 192, 48 )
 
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 192, 48 )
+
 [node name="MainMenu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -75,9 +90,9 @@ __meta__ = {
 
 [node name="Play" type="Button" parent="CanvasLayer"]
 margin_left = 104.0
-margin_top = 96.0
+margin_top = 80.0
 margin_right = 204.0
-margin_bottom = 126.0
+margin_bottom = 110.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
@@ -89,9 +104,9 @@ scene_path = "res://Sprites/Tutorial.tscn"
 
 [node name="Quit" type="Button" parent="CanvasLayer"]
 margin_left = 104.0
-margin_top = 144.0
+margin_top = 152.0
 margin_right = 204.0
-margin_bottom = 174.0
+margin_bottom = 182.0
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
@@ -102,12 +117,24 @@ __meta__ = {
 
 [node name="Credit" type="Button" parent="CanvasLayer"]
 margin_left = 104.0
-margin_top = 120.0
+margin_top = 128.0
 margin_right = 204.0
-margin_bottom = 150.0
+margin_bottom = 158.0
 custom_styles/hover = SubResource( 7 )
 custom_styles/pressed = SubResource( 8 )
 custom_styles/normal = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="CanvasLayer"]
+margin_left = 104.0
+margin_top = 104.0
+margin_right = 204.0
+margin_bottom = 134.0
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

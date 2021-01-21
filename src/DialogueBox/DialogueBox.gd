@@ -2,6 +2,9 @@ extends Control
 
 signal dialogue_ended
 
+export var questDialogue = false
+export var dialogueCompleted = false
+export var tutorialDialogue = false
 export var interaction_component_nodepath : NodePath
 #json data buat dialog
 export (String, FILE, "*.json") var dialogue_file_path: String
@@ -17,7 +20,13 @@ onready var button_finished:= get_node("Panel/Columns/ButtonFinished") as Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node(interaction_component_nodepath).connect("show_dialogue", self, "initiate_dialogue")
+	if !questDialogue:
+		get_node(interaction_component_nodepath).connect("show_dialogue", self, "initiate_dialogue")
+	elif questDialogue:
+		if dialogueCompleted:
+			get_node(interaction_component_nodepath).connect("show_questDilogueComplete", self, "initiate_dialogue")
+		elif !dialogueCompleted:
+			get_node(interaction_component_nodepath).connect("show_questDilogue", self, "initiate_dialogue")
 	hide()
 
 func initiate_dialogue() -> void:
@@ -46,6 +55,7 @@ func load_dialogue(file_path) -> Dictionary:
 	assert(dialogue.size() > 0) #buat mastiin json ga kosong
 	return dialogue
 
+
 func _on_ButtonNext_pressed():
 	dialogue_player.next()
 	update_content()
@@ -58,4 +68,6 @@ func _on_DialoguePlayer_end_conversation():
 
 func _on_ButtonFinished_pressed():
 	emit_signal("dialogue_ended")
+	if tutorialDialogue:
+		get_parent().get_parent().goNext()
 	hide()

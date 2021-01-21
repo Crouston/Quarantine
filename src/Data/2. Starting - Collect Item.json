@@ -1,0 +1,5 @@
+{
+	"001" : {"name":"Rega", "text":"Now, you are here. Collect those supplies before we go out."},
+	"002" : {"name":"Rega", "text":"When you near an item, use 'E' to interact with them."},
+	"003" : {"name":"Rega", "text":"Item you collected or buyed will be stored first in you inventory."}
+}

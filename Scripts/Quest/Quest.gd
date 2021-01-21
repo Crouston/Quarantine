@@ -4,6 +4,7 @@ class_name Quest
 signal taken
 signal completed
 
+export var isFerry = false
 enum questStatus {notStarted,taken,completed}
 var quest_status = questStatus.notStarted
 var itemFound = false
@@ -36,7 +37,7 @@ func OnTaken():
 	isTaken = true
 	QuestSystem.currentQuest = title
 	quest_status = questStatus.taken
-	QuestSystem.questUI.text = description
+	QuestSystem.questUI.text = description 
 
 func OnCompleted():
 	isCompleted = true
@@ -44,5 +45,11 @@ func OnCompleted():
 	QuestSystem.questUI.text = description + " completed"
 	QuestSystem.currentQuest = ""
 	PlayerInventory.add_item(rewardItems,quantityReward)
+	if isFerry:
+		get_parent().get_parent().cursec = get_parent().get_parent().IntroductionSection.meetFerry
+		QuestSystem.questUI.text = "Meet Regina"
+
+
+
 
 

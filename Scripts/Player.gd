@@ -9,6 +9,9 @@ export var speed = 0
 
 var health = 50
 var max_health = 100
+var infection = 0
+var max_infection = 100
+var countdownMin = 10
 enum{
 	MOVE,
 	ROLL,
@@ -22,8 +25,14 @@ onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
 	animationTree.active = true
+	health = GameManager.currentHealth
+	infection = GameManager.currentInfection
 
 func _physics_process(delta):
+	countdownMin -= delta
+	if infection >= 65 && countdownMin <= 0:
+		countdownMin = 10
+		dec_health(1,0)
 	match state:
 		MOVE:
 			move_state(delta)
@@ -69,16 +78,24 @@ func _input(event):
 			pickup_item.pick_up_item(self)
 			$PickupZone.items_in_range.erase(pickup_item)
 
-func set_health(amount):
-	health += amount
+func set_health(amount1,amount2):
+	health += amount1
 	health = clamp(health,0,max_health)
+	infection -= amount2
+	infection = clamp(infection,0,max_infection)
+	GameManager.currentHealth = health
 	GameManager.healthbar.value = health
+	GameManager.currentInfection = infection
 	#emit_signal("change_health",health)
 
-func dec_health(amount):
-	health -= amount
+func dec_health(amount1,amount2):
+	health -= amount1
 	health = clamp(health,0,max_health)
+	infection += amount2
+	infection = clamp(infection,0,max_infection)
 	if GameManager.healthbar != null:
+		GameManager.currentInfection = infection
+		GameManager.currentHealth = health
 		GameManager.healthbar.value = health
 	#emit_signal("change_health",health)
 

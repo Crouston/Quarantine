@@ -13,8 +13,65 @@
   },
   "Medic Kit": {
     "ItemCategory": "Consumable",
-    "AddHealth": 50,
-    "StackSize": 99,
+    "AddHealth": 60,
+    "DecInfection":25,
+    "StackSize": 10,
+    "Description": "It will patch you up"
+  },
+  "Paracetamol": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 15,
+    "DecInfection":2,
+    "StackSize": 10,
+    "Description": "It will patch you up"
+  },
+  "Antiboitics": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 30,
+    "DecInfection":10,
+    "StackSize": 10,
+    "Description": "It will patch you up"
+  },
+  "Cooked Vegetables": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 5,
+    "DecInfection":0,
+    "StackSize": 5,
+    "Description": "It will patch you up"
+  },
+  "Fried Chicken": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 2,
+    "DecInfection":0,
+    "StackSize": 5,
+    "Description": "It will patch you up"
+  },
+  "Fried Egg": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 2,
+    "DecInfection":0,
+    "StackSize": 5,
+    "Description": "It will patch you up"
+  },
+  "Fried Rice": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 5,
+    "DecInfection":0,
+    "StackSize": 5,
+    "Description": "It will patch you up"
+  },
+  "Grilled Beef": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 10,
+    "DecInfection":0,
+    "StackSize": 5,
+    "Description": "It will patch you up"
+  },
+  "Salad": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 15,
+    "DecInfection":0,
+    "StackSize": 5,
     "Description": "It will patch you up"
   },
   "Iron Sword": {

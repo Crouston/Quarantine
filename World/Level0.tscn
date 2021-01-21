@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/ItemDrop.tscn" type="PackedScene" id=2]
@@ -14,10 +14,17 @@
 [ext_resource path="res://World/UserInterface.gd" type="Script" id=12]
 [ext_resource path="res://Sprites/World/1. Grass (32 x 32).png" type="Texture" id=13]
 [ext_resource path="res://Sprites/World/2. SideWays (32 x 32).png" type="Texture" id=14]
+[ext_resource path="res://Prefabs/PausePanel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Prefabs/Money.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Prefabs/CharStat.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Prefabs/Pause.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sprites/UI/Pause/1. Pause Button - NEUTRAL.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/Quest/Quest.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scripts/Quest/QuestUI.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Prefabs/ItemQuest.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Prefabs/EnemySpawner.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Sprites/UI/Pause/2. Pause Button - SELECTED.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/UI/Pause/3. Pause Button - CLICKED.png" type="Texture" id=25]
 
 [sub_resource type="TileSet" id=1]
 0/name = "1. Grass (32 x 32).png 0"
@@ -566,6 +573,18 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
+[sub_resource type="StyleBoxTexture" id=52]
+texture = ExtResource( 24 )
+region_rect = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="StyleBoxTexture" id=53]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="StyleBoxTexture" id=54]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 24, 24 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapGrass" type="TileMap" parent="."]
@@ -601,7 +620,8 @@ smoothing_enabled = true
 [node name="YSort" type="YSort" parent="."]
 
 [node name="EnemySpawner" parent="YSort" instance=ExtResource( 23 )]
-position = Vector2( -136, 16 )
+position = Vector2( 160, 48 )
+z_index = 1
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 88, 72 )
@@ -627,6 +647,7 @@ scale = Vector2( 0.2, 0.2 )
 [node name="Npc2" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 48, 40 )
 scale = Vector2( 0.2, 0.2 )
+npcType = 2
 
 [node name="Npc3" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( -16, 120 )
@@ -634,6 +655,8 @@ scale = Vector2( 0.2, 0.2 )
 npcType = 1
 
 [node name="Quest" parent="YSort/Npc3" instance=ExtResource( 20 )]
+title = "get soap"
+description = "get soap to woody"
 
 [node name="ItemQuest2" parent="YSort/Npc3/Quest" instance=ExtResource( 22 )]
 position = Vector2( 680, -120 )
@@ -644,15 +667,20 @@ position = Vector2( -3.05176e-05, -480 )
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource( 12 )
 
+[node name="Pause" parent="UserInterface" instance=ExtResource( 18 )]
+custom_styles/hover = SubResource( 52 )
+custom_styles/pressed = SubResource( 53 )
+custom_styles/normal = SubResource( 54 )
+
 [node name="QuestUI" parent="UserInterface" instance=ExtResource( 21 )]
 margin_left = 8.0
-margin_top = 8.0
+margin_top = 24.0
 margin_right = 112.0
-margin_bottom = 48.0
+margin_bottom = 64.0
 
 [node name="Inventory" parent="UserInterface" instance=ExtResource( 8 )]
 visible = false
-position = Vector2( 16, -16 )
+position = Vector2( 16, 24 )
 scale = Vector2( 1.2, 1.2 )
 
 [node name="HealthBar" parent="UserInterface" instance=ExtResource( 3 )]
@@ -664,7 +692,24 @@ margin_bottom = -36.0
 [node name="ShopPanel" parent="UserInterface" instance=ExtResource( 7 )]
 visible = false
 
+[node name="PausePanel" parent="UserInterface" instance=ExtResource( 15 )]
+visible = false
+
+[node name="Money" parent="UserInterface" instance=ExtResource( 16 )]
+margin_left = 232.0
+margin_top = 8.0
+margin_right = 318.0
+margin_bottom = 28.0
+
+[node name="CharStat" parent="UserInterface" instance=ExtResource( 17 )]
+visible = false
+margin_left = 88.0
+margin_top = 24.0
+margin_right = 208.0
+margin_bottom = 128.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
 
 [node name="DialogueBox" parent="CanvasLayer" instance=ExtResource( 9 )]
 visible = false
@@ -694,7 +739,9 @@ interaction_component_nodepath = NodePath("../../YSort/Npc3")
 dialogue_file_path = "res://src/Data/Bambang.json"
 [connection signal="change_health" from="YSort/Player" to="UserInterface/HealthBar" method="_on_Player_change_health"]
 [connection signal="change_max_health" from="YSort/Player" to="UserInterface/HealthBar" method="_on_Player_change_max_health"]
+[connection signal="openShop" from="YSort/Npc2" to="UserInterface/ShopPanel" method="open_shop"]
 [connection signal="itemFound" from="YSort/Npc3/Quest/ItemQuest2" to="YSort/Npc3/Quest" method="getItem"]
 [connection signal="itemFound" from="YSort/Npc3/Quest/ItemQuest" to="YSort/Npc3/Quest" method="getItem"]
+[connection signal="pressed" from="UserInterface/Pause" to="UserInterface" method="Pause"]
 
 [editable path="YSort/Npc3/Quest"]

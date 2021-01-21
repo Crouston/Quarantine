@@ -1,0 +1,13 @@
+{
+	"001" : {"name":"Jorjio", "text":"Welcome, young man."},
+	"002" : {"name":"Rega", "text":"Hello, Uncle Jorjio. Whooohh !! It's really tiring to walk to this farm."},
+	"003" : {"name":"Jorjio", "text":"Ho ho ho, don't be lazy, young man. You still have youth energy in there better than me."},
+	"004" : {"name":"Rega", "text":"Hah?                  (Stunned)"},
+	"005" : {"name":"Jorjio", "text":"Okay then, why are you here?"},
+	"006" : {"name":"Rega", "text":"I come here to take some ingredients for Ferry, has he tell you about it?"},
+	"007" : {"name":"Jorjio", "text":"Of course, hahaha. He is my loyal customer."},
+	"008" : {"name":"Rega", "text":".....                                   (In deep thought)"},
+	"009" : {"name":"Jorjio", "text":"Take the item that I've prepared near the barn. Thank you for your help to delivered it."},
+	"010" : {"name":"Rega", "text":"Yeah, no problem. See you, Uncle!           (Forced Smile)"},
+	"011" : {"name":"Jorjio", "text":"Be careful on the way back, there are many pandemic viruses."}
+}

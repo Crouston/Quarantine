@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/5. Character Stats - BASE.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/8.1 Health Rate Bar - BASE.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/8.2 Health Rate Bar - FILL.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/7.2 Infection Rate Bar - FILL.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/7.1 Infection Rate Bar - BASE.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -24,7 +26,7 @@ margin_right = 77.0
 margin_bottom = 32.0
 custom_styles/panel = SubResource( 1 )
 
-[node name="Bar" type="TextureProgress" parent="."]
+[node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = 14.7135
 margin_top = 3.0
 margin_right = 76.7135
@@ -32,6 +34,17 @@ margin_bottom = 19.0
 value = 20.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfectionRate" type="TextureProgress" parent="."]
+margin_left = 27.0
+margin_top = 10.0
+margin_right = 75.0
+margin_bottom = 22.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

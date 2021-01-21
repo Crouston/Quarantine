@@ -1,6 +1,7 @@
 extends Button
 
 export var ItemName = ""
+export var ItemPrice = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,4 +19,5 @@ func _ready():
 
 func _on_ShopItem_pressed():
 	ShopManager.ItemName = ItemName
+	ShopManager.Price = ItemPrice
 	get_parent().open_quantity()
