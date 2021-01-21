@@ -13,6 +13,10 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 6
+extra_spacing_top = 1
+extra_spacing_bottom = 1
+extra_spacing_char = 1
+extra_spacing_space = 1
 font_data = ExtResource( 2 )
 
 [node name="QuestUI" type="Panel"]
@@ -29,6 +33,9 @@ margin_top = 8.0
 margin_right = 72.0
 margin_bottom = 32.0
 custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="QuestText" type="RichTextLabel" parent="."]
 margin_top = 8.0

@@ -29,7 +29,7 @@ func _process(delta):
 		if countdown3 <= 0 && !$CanvasLayer.get_child(7).visible:
 			$CanvasLayer.get_child(7).SucessOn()
 			$CanvasLayer.get_child(7).visible = !$CanvasLayer.get_child(7).visible
-	if GameManager.currentHealth <= 0 && !$CanvasLayer.get_child(7).visible:
+	if (GameManager.currentHealth <= 0 || GameManager.currentInfection >= 100) && !$CanvasLayer.get_child(7).visible:
 		$CanvasLayer.get_child(7).FailOn()
 		$CanvasLayer.get_child(7).visible = !$CanvasLayer.get_child(7).visible
 # Called every frame. 'delta' is the elapsed time since the previous frame.

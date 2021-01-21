@@ -1,4 +1,4 @@
-[gd_scene load_steps=276 format=2]
+[gd_scene load_steps=277 format=2]
 
 [ext_resource path="res://Spritesheets/2. Environment/1. Grass (32 x 32).png" type="Texture" id=1]
 [ext_resource path="res://Spritesheets/2. Environment/0.2.3 House 3 Type 1 (160 x 192).png" type="Texture" id=2]
@@ -107,6 +107,7 @@
 [ext_resource path="res://Sprites/Sound/sucess.wav" type="AudioStream" id=105]
 [ext_resource path="res://Sprites/Sound/fail.wav" type="AudioStream" id=106]
 [ext_resource path="res://Sprites/Sound/Outside.wav" type="AudioStream" id=107]
+[ext_resource path="res://Sprites/Sound/MainMenu.wav" type="AudioStream" id=108]
 
 [sub_resource type="TileSet" id=1]
 0/name = "1. Grass (32 x 32).png 0"
@@ -24837,9 +24838,15 @@ custom_styles/normal = SubResource( 168 )
 
 [node name="Success" type="AudioStreamPlayer2D" parent="YSort/Introduction/CanvasLayer/End"]
 stream = ExtResource( 105 )
+max_distance = 1e+06
 
 [node name="Fail" type="AudioStreamPlayer2D" parent="YSort/Introduction/CanvasLayer/End"]
 stream = ExtResource( 106 )
+max_distance = 1e+06
+
+[node name="End" type="AudioStreamPlayer2D" parent="YSort/Introduction/CanvasLayer/End"]
+stream = ExtResource( 108 )
+max_distance = 1e+06
 
 [node name="Npc" type="StaticBody2D" parent="YSort/Introduction"]
 position = Vector2( 2088, 2472 )

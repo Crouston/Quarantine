@@ -17,9 +17,11 @@ func _ready():
 
 func SucessOn():
 	$Success.play()
+	$End.play()
 
 func FailOn():
 	$Fail.play()
+	$End.play()
 
 func _on_Button_pressed():
 	$First.visible = !$First.visible

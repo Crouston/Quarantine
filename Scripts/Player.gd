@@ -30,11 +30,8 @@ func _ready():
 	health = GameManager.currentHealth
 	infection = GameManager.currentInfection
 
+
 func _physics_process(delta):
-	countdownMin -= delta
-	if infection >= 65 && countdownMin <= 0:
-		countdownMin = 10
-		dec_health(1,0)
 	match state:
 		MOVE:
 			move_state(delta)
