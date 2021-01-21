@@ -1,4 +1,4 @@
-[gd_scene load_steps=273 format=2]
+[gd_scene load_steps=276 format=2]
 
 [ext_resource path="res://Spritesheets/2. Environment/1. Grass (32 x 32).png" type="Texture" id=1]
 [ext_resource path="res://Spritesheets/2. Environment/0.2.3 House 3 Type 1 (160 x 192).png" type="Texture" id=2]
@@ -104,6 +104,9 @@
 [ext_resource path="res://Sprites/UI/Pause/10.2 Quit Button - SELECTED.png" type="Texture" id=102]
 [ext_resource path="res://Sprites/UI/Pause/10.3 Quit Button - CLICKED.png" type="Texture" id=103]
 [ext_resource path="res://Prefabs/Pause.tscn" type="PackedScene" id=104]
+[ext_resource path="res://Sprites/Sound/sucess.wav" type="AudioStream" id=105]
+[ext_resource path="res://Sprites/Sound/fail.wav" type="AudioStream" id=106]
+[ext_resource path="res://Sprites/Sound/Outside.wav" type="AudioStream" id=107]
 
 [sub_resource type="TileSet" id=1]
 0/name = "1. Grass (32 x 32).png 0"
@@ -1963,6 +1966,11 @@ margin_left = 224.0
 margin_top = 8.0
 margin_right = 310.0
 margin_bottom = 28.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UserInterface"]
+stream = ExtResource( 107 )
+autoplay = true
+max_distance = 1e+06
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -24628,7 +24636,7 @@ position = Vector2( 3152, -704 )
 texture = ExtResource( 88 )
 
 [node name="ItemQuest2" parent="YSort/Introduction/Npc2/Quest" instance=ExtResource( 86 )]
-position = Vector2( 2432, -472 )
+position = Vector2( 3312, 720 )
 
 [node name="Sprite" parent="YSort/Introduction/Npc2/Quest/ItemQuest2" index="0"]
 texture = ExtResource( 89 )
@@ -24823,6 +24831,12 @@ custom_styles/hover = SubResource( 166 )
 custom_styles/pressed = SubResource( 167 )
 custom_styles/normal = SubResource( 168 )
 
+[node name="Success" type="AudioStreamPlayer2D" parent="YSort/Introduction/CanvasLayer/End"]
+stream = ExtResource( 105 )
+
+[node name="Fail" type="AudioStreamPlayer2D" parent="YSort/Introduction/CanvasLayer/End"]
+stream = ExtResource( 106 )
+
 [node name="Npc" type="StaticBody2D" parent="YSort/Introduction"]
 position = Vector2( 2088, 2472 )
 scale = Vector2( 1.43359, -1.61655 )
@@ -24839,7 +24853,7 @@ texture = ExtResource( 78 )
 shape = SubResource( 159 )
 
 [node name="Npc2" type="StaticBody2D" parent="YSort"]
-position = Vector2( 3720, 2000 )
+position = Vector2( 4736, 2120 )
 collision_layer = 9
 collision_mask = 9
 script = ExtResource( 85 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Player.png" type="Texture" id=2]
@@ -296,6 +296,108 @@ tracks/0/keys = {
 "values": [ 40, 41 ]
 }
 
+[sub_resource type="Animation" id=48]
+resource_name = "MaskIdleDown"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 37, 38 ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "MaskIdleLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 50, 51 ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "MaskIdleRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 52, 53 ]
+}
+
+[sub_resource type="Animation" id=45]
+resource_name = "MaskWalkDown"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 30, 31, 32, 33, 34 ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "MaskWalkLeft"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 20, 21, 22, 23, 24 ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "MaskWalkRight"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 25, 26, 27, 28, 29 ]
+}
+
 [sub_resource type="Animation" id=10]
 length = 0.6
 loop = true
@@ -360,31 +462,6 @@ tracks/0/keys = {
 "values": [ 15, 16, 17, 18, 19 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=14]
-animation = "AttackRight"
-
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "AttackDown"
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "AttackLeft"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "AttackUp"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=18]
-blend_point_0/node = SubResource( 14 )
-blend_point_0/pos = Vector2( 1, 0 )
-blend_point_1/node = SubResource( 15 )
-blend_point_1/pos = Vector2( 0, 1.1 )
-blend_point_2/node = SubResource( 16 )
-blend_point_2/pos = Vector2( -1, 0 )
-blend_point_3/node = SubResource( 17 )
-blend_point_3/pos = Vector2( 0, -1.1 )
-min_space = Vector2( -1, -1.1 )
-max_space = Vector2( 1, 1.1 )
-blend_mode = 1
-
 [sub_resource type="AnimationNodeAnimation" id=19]
 animation = "IdleLeft"
 
@@ -407,6 +484,50 @@ blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 22 )
 blend_point_3/pos = Vector2( 0, -1 )
 blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=51]
+animation = "MaskIdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=52]
+animation = "MaskIdleDown"
+
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "MaskIdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "IdleUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=55]
+blend_point_0/node = SubResource( 51 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 52 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 53 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 54 )
+blend_point_3/pos = Vector2( 0, -1 )
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "MaskWalkDown"
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "MaskWalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "MaskWalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "WalkUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=60]
+blend_point_0/node = SubResource( 56 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 57 )
+blend_point_1/pos = Vector2( -1, 0 )
+blend_point_2/node = SubResource( 58 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 59 )
+blend_point_3/pos = Vector2( 0, -1 )
 
 [sub_resource type="AnimationNodeAnimation" id=24]
 animation = "WalkDown"
@@ -442,18 +563,28 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
 
 [sub_resource type="AnimationNodeStateMachine" id=34]
-states/Attack/node = SubResource( 18 )
-states/Attack/position = Vector2( 198, 161 )
 states/Idle/node = SubResource( 23 )
 states/Idle/position = Vector2( 198, 79 )
+states/MaskIdle/node = SubResource( 55 )
+states/MaskIdle/position = Vector2( -24.969, 79 )
+states/MaskWalk/node = SubResource( 60 )
+states/MaskWalk/position = Vector2( -24.969, 179 )
 states/Walk/node = SubResource( 29 )
-states/Walk/position = Vector2( 412, 79 )
-transitions = [ "Idle", "Walk", SubResource( 30 ), "Walk", "Idle", SubResource( 31 ), "Attack", "Idle", SubResource( 32 ), "Idle", "Attack", SubResource( 33 ) ]
+states/Walk/position = Vector2( 198, 173 )
+transitions = [ "Idle", "Walk", SubResource( 30 ), "Walk", "Idle", SubResource( 31 ), "Idle", "MaskIdle", SubResource( 61 ), "MaskIdle", "MaskWalk", SubResource( 62 ), "MaskWalk", "MaskIdle", SubResource( 63 ), "Walk", "MaskIdle", SubResource( 64 ), "Walk", "MaskWalk", SubResource( 65 ), "Idle", "MaskWalk", SubResource( 66 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -292.969, 23 )
 
@@ -485,7 +616,7 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 vframes = 11
 hframes = 5
-frame = 35
+frame = 27
 
 [node name="InteractionComponent" parent="Sprite" instance=ExtResource( 4 )]
 position = Vector2( -15.4496, 0.899584 )
@@ -506,6 +637,12 @@ anims/IdleDown = SubResource( 6 )
 anims/IdleLeft = SubResource( 7 )
 anims/IdleRight = SubResource( 8 )
 anims/IdleUp = SubResource( 9 )
+anims/MaskIdleDown = SubResource( 48 )
+anims/MaskIdleLeft = SubResource( 49 )
+anims/MaskIdleRight = SubResource( 50 )
+anims/MaskWalkDown = SubResource( 45 )
+anims/MaskWalkLeft = SubResource( 46 )
+anims/MaskWalkRight = SubResource( 47 )
 anims/WalkDown = SubResource( 10 )
 anims/WalkLeft = SubResource( 11 )
 anims/WalkRight = SubResource( 12 )
@@ -515,8 +652,9 @@ anims/WalkUp = SubResource( 13 )
 tree_root = SubResource( 34 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 35 )
-parameters/Attack/blend_position = Vector2( 0, 0.009 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/MaskIdle/blend_position = Vector2( 0, -0.0103092 )
+parameters/MaskWalk/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0, 0 )
 
 [node name="Position2D" type="Position2D" parent="."]

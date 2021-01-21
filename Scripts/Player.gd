@@ -12,6 +12,7 @@ var max_health = 100
 var infection = 0
 var max_infection = 100
 var countdownMin = 10
+var isUsingMask = false
 enum{
 	MOVE,
 	ROLL,
@@ -24,6 +25,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
+	isUsingMask = GameManager.isUsingMask
 	animationTree.active = true
 	health = GameManager.currentHealth
 	infection = GameManager.currentInfection
@@ -46,15 +48,21 @@ func move_state(delta):
 	inputMove.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	inputMove.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	inputMove = inputMove.normalized() 
-	
 	if inputMove != Vector2.ZERO:
 		animationTree.set("parameters/Idle/blend_position",inputMove)
 		animationTree.set("parameters/Walk/blend_position",inputMove)
-		animationTree.set("parameters/Attack/blend_position",inputMove)
-		animationState.travel("Walk")
+		animationTree.set("parameters/MaskIdle/blend_position",inputMove)
+		animationTree.set("parameters/MaskWalk/blend_position",inputMove)
+		if !isUsingMask:
+			animationState.travel("Walk")
+		elif isUsingMask:
+			animationState.travel("MaskWalk")
 		velocity = velocity.move_toward(inputMove * speed,accelerator * delta)
 	else:
-		animationState.travel("Idle")
+		if !isUsingMask:
+			animationState.travel("Idle")
+		elif isUsingMask:
+			animationState.travel("MaskIdle")
 		velocity = velocity.move_toward(Vector2.ZERO,accelerator * delta)
 	
 	velocity =  move_and_slide(velocity)
@@ -102,3 +110,8 @@ func dec_health(amount1,amount2):
 func _initialize():
 	emit_signal("change_health",health)
 	emit_signal("change_max_health",max_health)
+
+func setMask(isMask):
+	if isMask:
+		GameManager.isUsingMask = true
+		isUsingMask = true

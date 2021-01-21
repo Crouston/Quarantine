@@ -27,8 +27,10 @@ func _process(delta):
 	if cursec == IntroductionSection.afterEnd:
 		countdown3 -= delta
 		if countdown3 <= 0 && !$CanvasLayer.get_child(7).visible:
+			$CanvasLayer.get_child(7).SucessOn()
 			$CanvasLayer.get_child(7).visible = !$CanvasLayer.get_child(7).visible
 	if GameManager.currentHealth <= 0 && !$CanvasLayer.get_child(7).visible:
+		$CanvasLayer.get_child(7).FailOn()
 		$CanvasLayer.get_child(7).visible = !$CanvasLayer.get_child(7).visible
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

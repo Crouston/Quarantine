@@ -2453,6 +2453,7 @@ position = Vector2( 1080, 208 )
 shape = SubResource( 96 )
 
 [node name="Bathroom" type="RigidBody2D" parent="Furniture"]
+mode = 1
 
 [node name="Shower" type="Sprite" parent="Furniture/Bathroom"]
 position = Vector2( 1064, 400 )

@@ -15,6 +15,15 @@
     "ItemCategory": "Consumable",
     "AddHealth": 60,
     "DecInfection":25,
+    "isMask":false,
+    "StackSize": 10,
+    "Description": "It will patch you up"
+  },
+  "Mask": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 0,
+    "DecInfection":0,
+    "isMask":true,
     "StackSize": 10,
     "Description": "It will patch you up"
   },
@@ -22,6 +31,7 @@
     "ItemCategory": "Consumable",
     "AddHealth": 15,
     "DecInfection":2,
+    "isMask":false,
     "StackSize": 10,
     "Description": "It will patch you up"
   },
@@ -29,6 +39,7 @@
     "ItemCategory": "Consumable",
     "AddHealth": 30,
     "DecInfection":10,
+    "isMask":false,
     "StackSize": 10,
     "Description": "It will patch you up"
   },
@@ -36,6 +47,7 @@
     "ItemCategory": "Consumable",
     "AddHealth": 5,
     "DecInfection":0,
+    "isMask":false,
     "StackSize": 5,
     "Description": "It will patch you up"
   },
@@ -43,6 +55,7 @@
     "ItemCategory": "Consumable",
     "AddHealth": 2,
     "DecInfection":0,
+    "isMask":false,
     "StackSize": 5,
     "Description": "It will patch you up"
   },
@@ -50,6 +63,7 @@
     "ItemCategory": "Consumable",
     "AddHealth": 2,
     "DecInfection":0,
+    "isMask":false,
     "StackSize": 5,
     "Description": "It will patch you up"
   },
@@ -57,6 +71,7 @@
     "ItemCategory": "Consumable",
     "AddHealth": 5,
     "DecInfection":0,
+    "isMask":false,
     "StackSize": 5,
     "Description": "It will patch you up"
   },
@@ -64,6 +79,7 @@
     "ItemCategory": "Consumable",
     "AddHealth": 10,
     "DecInfection":0,
+    "isMask":false,
     "StackSize": 5,
     "Description": "It will patch you up"
   },
@@ -71,6 +87,7 @@
     "ItemCategory": "Consumable",
     "AddHealth": 15,
     "DecInfection":0,
+    "isMask":false,
     "StackSize": 5,
     "Description": "It will patch you up"
   },

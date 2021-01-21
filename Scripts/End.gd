@@ -15,6 +15,11 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func SucessOn():
+	$Success.play()
+
+func FailOn():
+	$Fail.play()
 
 func _on_Button_pressed():
 	$First.visible = !$First.visible

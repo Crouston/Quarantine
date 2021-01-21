@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/Play.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/3.1 New Game Button - NEUTRAL.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Sprites/UI/4.1 Load Game Button - NEUTRAL.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/UI/4.2 Load Game Button - SELECTED.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/UI/4.3 Load Game Button - CLICKED.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Sound/MainMenu.wav" type="AudioStream" id=17]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
@@ -71,7 +72,7 @@ region_rect = Rect2( 0, 0, 192, 48 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 margin_right = 320.0
-margin_bottom = 176.0
+margin_bottom = 184.0
 texture = ExtResource( 9 )
 expand = true
 __meta__ = {
@@ -138,5 +139,9 @@ custom_styles/normal = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
 [connection signal="pressed" from="CanvasLayer/Play" to="CanvasLayer/Play" method="_on_Play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Quit" to="CanvasLayer/Quit" method="_on_Quit_pressed"]

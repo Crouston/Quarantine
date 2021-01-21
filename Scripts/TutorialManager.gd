@@ -9,7 +9,7 @@ func _ready():
 		canvasLayer.get_child(0).initiate_dialogue()
 
 func _process(delta):
-	if GameManager.currentHealth == 100 && curSet == tutorialSet.useItem && !canvasLayer.get_child(3).visible:
+	if (GameManager.currentHealth == 100 || GameManager.isUsingMask) && curSet == tutorialSet.useItem && !canvasLayer.get_child(3).visible:
 		$UserInterface.close_inventory()
 		canvasLayer.get_child(3).initiate_dialogue()
 	if Input.is_action_just_pressed("pickup") && curSet == tutorialSet.pickItem:

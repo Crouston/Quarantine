@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Outside.wav-e1baf70e5084ad509c09a4ecf712c9da.sample"
+
+[deps]
+
+source_file="res://Sprites/Sound/Outside.wav"
+dest_files=[ "res://.import/Outside.wav-e1baf70e5084ad509c09a4ecf712c9da.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
