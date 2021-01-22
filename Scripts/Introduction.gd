@@ -17,7 +17,7 @@ func _process(delta):
 		countdown -= delta
 		if countdown <= 0:
 			$CanvasLayer.get_child(3).initiate_dialogue()
-			QuestSystem.questUI.text = "meet Regina"
+			QuestSystem.questUI.text = "Go to Regina's Shop near Home"
 			cursec = IntroductionSection.meetRegina
 	if cursec == IntroductionSection.end:
 		countdown2 -= delta
@@ -39,7 +39,7 @@ func _process(delta):
 func get_dialogue():
 	if !shopFirstTime && cursec == IntroductionSection.meetRegina:
 		cursec = IntroductionSection.end
-		QuestSystem.questUI.text = "go around town"
+		QuestSystem.questUI.text = "Go around The City"
 		$CanvasLayer.get_child(5).initiate_dialogue()
 		shopFirstTime = true
 

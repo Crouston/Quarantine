@@ -1816,7 +1816,7 @@ texture = ExtResource( 96 )
 region_rect = Rect2( 0, 0, 320, 192 )
 
 [sub_resource type="DynamicFont" id=162]
-size = 12
+size = 11
 font_data = ExtResource( 95 )
 
 [sub_resource type="StyleBoxTexture" id=163]
@@ -24628,7 +24628,7 @@ shape = SubResource( 159 )
 [node name="Quest" parent="YSort/Introduction/Npc2" instance=ExtResource( 87 )]
 isFerry = true
 title = "Get Ingridient"
-description = "Get 3 ingridients and sent to Ferry"
+description = "Get 3 ingridient from the farm in far east of town and sent to Ferry"
 quantityQuest = 3
 
 [node name="ItemQuest" parent="YSort/Introduction/Npc2/Quest" instance=ExtResource( 86 )]

@@ -4,7 +4,9 @@ const SlotClass = preload("res://Prefabs/Slot.gd")
 const ItemClass = preload("res://Prefabs/Item.gd")
 const NUM_INVENTORY_SLOTS = 12
 
-var inventory = {
+var inventory = startItem
+
+const startItem = {
 	0:["Medic Kit",2],
 	1:["Mask",1],
 	2:["Salad",2]

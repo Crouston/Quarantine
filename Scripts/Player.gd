@@ -66,6 +66,9 @@ func move_state(delta):
 	
 	if velocity != Vector2.ZERO && !$AudioStreamPlayer2D.playing:
 		$AudioStreamPlayer2D.play()
+	if GameManager.tagVirus:
+		$VirusSfx.play()
+		GameManager.tagVirus = false
 #	if Input.is_action_just_pressed("attack"):
 #		state = ATTACK
 
@@ -103,6 +106,7 @@ func dec_health(amount1,amount2):
 		GameManager.currentHealth = health
 		GameManager.healthbar.value = health
 	#emit_signal("change_health",health)
+
 
 func _initialize():
 	emit_signal("change_health",health)

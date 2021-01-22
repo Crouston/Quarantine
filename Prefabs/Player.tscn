@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Player.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/Player/InteractionComponentUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/PickupZone.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/Sound/single2.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sprites/Sound/Virus.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.48244
@@ -681,6 +682,9 @@ shape = SubResource( 52 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+
+[node name="VirusSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
 [connection signal="body_entered" from="PickupZone" to="PickupZone" method="_on_PickupZone_body_entered"]
 [connection signal="body_exited" from="PickupZone" to="PickupZone" method="_on_PickupZone_body_exited"]
 

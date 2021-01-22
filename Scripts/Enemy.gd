@@ -22,6 +22,7 @@ func _physics_process(delta):
 		var distance = global_position.distance_to(player.global_position)
 		if distance < 4:
 			GameManager.player.dec_health(5,10)
+			GameManager.tagVirus = true
 			get_parent().enemyCount -= 1
 			get_parent().timer = 5
 			queue_free()

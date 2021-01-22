@@ -47,7 +47,7 @@ func OnCompleted():
 	PlayerInventory.add_item(rewardItems,quantityReward)
 	if isFerry:
 		get_parent().get_parent().cursec = get_parent().get_parent().IntroductionSection.meetFerry
-		QuestSystem.questUI.text = "Meet Regina"
+		QuestSystem.questUI.text = "Go to Regina's Shop near Home"
 
 
 
